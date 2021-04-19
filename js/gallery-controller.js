@@ -1,6 +1,6 @@
 'use strict'
 const gImgs = [
-    { id: 1, url: 'imgs/1.jpg', keywords: ['happy'] },
+    { id: 1, url: '/imgs/1.jpg', keywords: ['happy'] },
     { id: 2, url: 'imgs/2.jpg', keywords: ['happy'] },
     { id: 3, url: 'imgs/3.jpg', keywords: ['happy'] },
     { id: 4, url: 'imgs/4.jpg', keywords: ['happy'] },
