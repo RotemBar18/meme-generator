@@ -1,75 +1,98 @@
 'use strict'
 
 // var gKeywords = { 'happy': 12, 'funny puk': 1 }
-// var gImgs = [{ id: 1, url: 'img/popo.jpg', keywords: ['happy'] }];
-let gMeme = {
-    selectedImgId: 5,
-    selectedLineIdx: 0,
-    lines: [
-        {
-            txt: 'I never eat Falafel',
-            size: 60,
-            align: 'left',
-            color: 'red'
-        }
-    ]
-};
 
-let gMemes = [
-    {
-        selectedImgId: 5,
+let gMeme;
+
+function createMeme(imgId) {
+    gMeme = {
+        id: makeId(),
+        selectedImgId: imgId,
         selectedLineIdx: 0,
         lines: [
             {
                 txt: 'I never eat Falafel',
                 size: 60,
-                align: 'left',
-                color: 'red'
-            }
-        ]
-    },
-    {
-        selectedImgId: 1,
-        selectedLineIdx: 0,
-        lines: [
-            {
-                txt: 'fff',
-                size: 60,
-                align: 'left',
-                color: 'red'
-            }
-        ]
-    },
-]
+                borderColor: '#000000',
+                fontFamily: 'impact',
+                fontColor: '#ffffff',
+                x: 20,
+                y: 100
 
-function setCurrMeme(meme) {
-    gMeme = meme;
+            }
+        ]
+    }
 }
+
 
 function getCurrMeme() {
     return gMeme
 }
 
-function updateMemeLines(newLine) {
+function updateMemeLines(txt) {
     console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx)
-    gMeme.lines[gMeme.selectedLineIdx].txt = newLine
+    gMeme.lines[gMeme.selectedLineIdx].txt = txt
 }
 
 function addNewLine() {
-    gMeme.selectedLineIdx++
-    console.log('gMeme', gMeme)
-    gMeme.lines.push({
-        txt: '',
-        size: 60,
-        align: 'left',
-        color: 'red'
-    })
+    if (!gMeme.lines.length) {
+        let x = 20
+        let y = 100
+        gMeme.lines.push({
+            txt: 'New Line',
+            size: 60,
+            borderColor: '#000000',
+            fontFamily: 'impact',
+            fontColor: '#ffffff',
+            x,
+            y
+        })
+    }
+    else {
+        let { x, y } = gMeme.lines[gMeme.selectedLineIdx]
+        gMeme.selectedLineIdx++
+        y += 50
+        gMeme.lines.push({
+            txt: 'New Line',
+            size: 60,
+            borderColor: '#000000',
+            fontFamily: 'impact',
+            fontColor: '#ffffff',
+            x,
+            y
+        })
+
+    }
 }
 
-function getMemeById(memeId) {
-    const currMeme = gMemes.find(function (meme) {
-        return meme.selectedImgId === memeId
-    })
-    
-    return currMeme
+
+function increaseFont() {
+    gMeme.lines[gMeme.selectedLineIdx].size += 1.5
+}
+
+function decreaseFont() {
+    gMeme.lines[gMeme.selectedLineIdx].size -= 1.5
+}
+
+function switchLines() {
+    gMeme.selectedLineIdx++
+    if (gMeme.selectedLineIdx > gMeme.lines.length - 1) gMeme.selectedLineIdx = 0
+}
+
+function lineUp() {
+    gMeme.lines[gMeme.selectedLineIdx].y -= 20
+}
+
+function lineDown() {
+    gMeme.lines[gMeme.selectedLineIdx].y += 20
+}
+
+function deleteLine() {
+    gMeme.lines.splice([gMeme.selectedLineIdx], 1)
+}
+function colorBorder(color){
+    gMeme.lines[gMeme.selectedLineIdx].borderColor = color
+}
+function colorFONT(color){
+    gMeme.lines[gMeme.selectedLineIdx].fontColor = color
 }

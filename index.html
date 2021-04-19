@@ -8,22 +8,43 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body onload="init(event)">
-    <section class="image-gallery flex">
-        <img src="imgs/1.jpg" id="1" alt="" onclick="onImageClick(this)">
-        <img src="imgs/5.jpg" id="5" onclick="onImageClick(this)">
-      
-    </section>
+    <header class="container flex space-between align-center">
+        <div class="logo">Memes</div>
+        <ul class="main-nav flex clean-list">
+            <li><a class="flex-center active" href="#">Gallery</a></li>
+            <li><a class="flex-center" href="#">Memes</a></li>
+            <li><a class="flex-center" href="#">About</a></li>
+        </ul>
+    </header>
     
-    <section  class="main-content flex column" >
+
+        <section class="image-gallery">            
+        </section>
+    
+    
+    <section  class="main-content" >
+        <button class="close-editor-btn" onclick="closeEditor()">x</button>
         <div class="canvas-container">
             <canvas id="my-canvas" width="500px" height="500px"></canvas>
         </div>
         <div class="tools">
-            <input class="text-input" onclick="addNewLine()" oninput="onTextInput()" type="text" placeholder="insert your twxt here">
+            <input class="text-input" oninput="onTextInput(this.value)" type="text" placeholder="insert your text here">
+            <button class="increase-font" onclick="onIncreaseFont()">+</button>
+            <button class="decrease-font" onclick="onDecreaseFont()">-</button>
+            <button class="switch-line" onclick="onSwitchLines()">switch</button>
+            <button class="up-line" onclick="onUpArrow()">Up</button>
+            <button class="down-line" onclick="onDownArrow()">Down</button>
+            <button class="delete-line" onclick="onDeleteLine()">delete</button>
+            <button class="new-line-btn" onclick="onAddNewLine()">NL</button>
+            <input type="color" class="border-color" oninput="onBorderColor(this.value)">BC</input>
+            <input type="color" class="font-color" oninput="onFontColor(this.value)">FC</input>
         </div>
     </section>
+  
 
+    <script src="js/util.js"></script>
     <script src="js/meme-service.js"></script>
+    <script src="js/gallery-controller.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
