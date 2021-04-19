@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="init(event)">
+    <section class="image-gallery flex">
+        <img src="imgs/1.jpg" id="1" alt="" onclick="onImageClick(this)">
+        <img src="imgs/5.jpg" id="5" onclick="onImageClick(this)">
+      
+    </section>
+    
+    <section  class="main-content flex column" >
+        <div class="canvas-container">
+            <canvas id="my-canvas" width="500px" height="500px"></canvas>
+        </div>
+        <div class="tools">
+            <input class="text-input" onclick="addNewLine()" oninput="onTextInput()" type="text" placeholder="insert your twxt here">
+        </div>
+    </section>
+
+    <script src="js/meme-service.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    max-width: 150px;
+    margin: 5px;
+}
+
+.main-content{
+}
+.canvas-container {
+    border: 1px solid black;
+}
+
+
+.tools{
+    margin-top: 50px;
+}
+
+.flex{
+    display: flex;
+}
+.column{
+    flex-direction: column;
+}
