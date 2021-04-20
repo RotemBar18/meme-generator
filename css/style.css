@@ -43,6 +43,9 @@ body {
     color: #c08e5f;
     box-shadow: inset 0 -6px 0  #c08e5f;
 }
+.image-gallery{
+    display: block;
+}
 
 img{
     max-width: 150px;
@@ -64,7 +67,7 @@ img{
 
     transform: translateX(-200%);
         
-    transition: transform .6s;
+    transition: transform 0.3s;
 }
 
 body.editor-open .main-content {
@@ -72,11 +75,11 @@ body.editor-open .main-content {
 }
 
 .canvas-container {
+    height:fit-content;
     display: flex;
     align-self: center;
     border: 1px solid black;
-    width: min-content;
-
+    width: fit-content;
 }
 
 .tools{
