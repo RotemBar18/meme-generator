@@ -53,6 +53,7 @@ function onTextInput(txt) {
 function onImageClick(imgId) {
     document.querySelector('.image-gallery').style.display = 'none'
     openEditor()
+    document.querySelector('.text-input').value = ''
     createMeme(imgId)
     renderMeme()
 }
@@ -131,6 +132,7 @@ function onGalleryClick(){
 
 function onMemesClick() {
     renderMemes()
+    document.querySelector('.image-gallery').style.display = 'none'
     document.body.classList.remove('editor-open')
     document.querySelector('.saved-memes').style.display = 'grid'
     document.querySelector('li .gallery').classList.remove('active')

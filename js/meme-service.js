@@ -13,8 +13,8 @@ function createMeme(imgId) {
         selectedLineIdx: 0,
         lines: [
             {
-                txt: 'I never eat Falafel',
-                size: 60,
+                txt: 'Insert Text',
+                size: 50,
                 borderColor: '#000000',
                 fontFamily: 'impact',
                 fontColor: '#ffffff',
@@ -39,20 +39,20 @@ function updateMemeLines(txt) {
 }
 
 function addNewLine() {
+    
     if (!gMeme.lines.length) {
         var x = 20
-        var y = 50
+        var y = 100
     }
     else if (gMeme.lines.length === 1) {
         var x = 20
-        var y = 400
+        var y = 450
     }
     else {
         var x = 20
-        var y = 200
+        var y = 250
     }
     gMeme.selectedLineIdx++
-    y += 50
     gMeme.lines.push({
         txt: 'New Line',
         size: 60,

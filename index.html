@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Meme Generator</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body onload="init(event)">
     <header class="container flex space-between align-center">
         <div class="logo">Memes</div>
@@ -16,37 +18,43 @@
             <li><a class="about flex-center" href="#">About</a></li>
         </ul>
     </header>
-    
 
-        <section class="image-gallery">            
-        </section>
-    
-    
-    <section  class="main-content" >
+
+    <section class="image-gallery">
+    </section>
+
+
+    <section class="main-content">
         <form class="flex" action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
             <input name="img" id="imgData" type="hidden" />
-        <div class="canvas-container">
-            <canvas id="my-canvas" width="500px" height="500px"></canvas>
-        </div>
-        <div class="tools">
-            <button class="tool-box close-editor-btn" onclick="closeEditor()">x</button>
-            <input class="tool-box text-input" oninput="onTextInput(this.value)" type="text" placeholder="insert your text here">
-            <button class="tool-box increase-font" onclick="onIncreaseFont()"><img src="ICONS/increase font - icon.png" alt=""></button>
-            <button class="tool-box decrease-font" onclick="onDecreaseFont()"><img src="ICONS/decrease font - icon.png" alt=""></button>
-            <button class="tool-box switch-line" onclick="onSwitchLines()"><img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
-            <button class="tool-box up-line" onclick="onUpArrow()"><img src="ICONS/up.png" alt=""></button>
-            <button class="tool-box down-line" onclick="onDownArrow()"><img src="ICONS/down.png" alt=""></button>
-            <button class="tool-box delete-line" onclick="onDeleteLine()"><img src="ICONS/trash.png" alt=""></button>
-            <button class="tool-box new-line-btn" onclick="onAddNewLine()"><img src="ICONS/add.png" alt=""></button>
-            <input type="color" class="tool-box border-color" oninput="onBorderColor(this.value)"></input>
-            <input type="color" class="tool-box font-color" oninput="onFontColor(this.value)"></input>
-            <button class="tool-box save-meme" onclick="onSaveMeme()">save!</button>
-            <a href="#" class="download-btn" onclick="downloadImg(this)" download="my-meme.jpg">Download!</a>
-            <a class=" share-btn"></a>
-            <button class="tool-box publish-btn" type="submit"><img src="ICONS/share.png" alt=""></button>
-        </section>
+            <div class="canvas-container">
+                <canvas id="my-canvas" width="500px" height="500px"></canvas>
+            </div>
+            <div class="tools">
+                <button class="tool-box close-editor-btn" onclick="closeEditor()">x</button>
+                <input class="tool-box text-input" oninput="onTextInput(this.value)" type="text"
+                    placeholder="insert your text here">
+                <button class="tool-box increase-font" onclick="onIncreaseFont()"><img
+                        src="ICONS/increase font - icon.png" alt=""></button>
+                <button class="tool-box decrease-font" onclick="onDecreaseFont()"><img
+                        src="ICONS/decrease font - icon.png" alt=""></button>
+                <button class="tool-box switch-line" onclick="onSwitchLines()"><img
+                        src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                <button class="tool-box up-line" onclick="onUpArrow()"><img src="ICONS/up.png" alt=""></button>
+                <button class="tool-box down-line" onclick="onDownArrow()"><img src="ICONS/down.png" alt=""></button>
+                <button class="tool-box delete-line" onclick="onDeleteLine()"><img src="ICONS/trash.png"
+                        alt=""></button>
+                <button class="tool-box new-line-btn" onclick="onAddNewLine()"><img src="ICONS/add.png" alt=""></button>
+                <input type="color" class="tool-box border-color" oninput="onBorderColor(this.value)"></input>
+                <input type="color" class="tool-box font-color" oninput="onFontColor(this.value)"></input>
+                <button class="tool-box save-meme" onclick="onSaveMeme()">Save</button>
+                <a href="#" class="download-btn" onclick="downloadImg(this)" download="my-meme.jpg">Download</a>
+                <a class=" share-btn"></a>
+                <button class="tool-box publish-btn" type="submit"><img src="ICONS/share.png" alt=""></button>
+            </div>
+    </section>
     </form>
-  
+
     <section class="saved-memes ">
     </section>
 
@@ -58,4 +66,5 @@
     <script src="js/main.js"></script>
     <script src="js/memes-controller.js"></script>
 </body>
+
 </html>
