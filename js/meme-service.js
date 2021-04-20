@@ -36,33 +36,29 @@ function updateMemeLines(txt) {
 
 function addNewLine() {
     if (!gMeme.lines.length) {
-        let x = 20
-        let y = 100
-        gMeme.lines.push({
-            txt: 'New Line',
-            size: 60,
-            borderColor: '#000000',
-            fontFamily: 'impact',
-            fontColor: '#ffffff',
-            x,
-            y
-        })
+        var x = 20
+        var y = 50
+    }
+    else if (gMeme.lines.length === 1) {
+        var x = 20
+        var y = 400
     }
     else {
-        let { x, y } = gMeme.lines[gMeme.selectedLineIdx]
-        gMeme.selectedLineIdx++
-        y += 50
-        gMeme.lines.push({
-            txt: 'New Line',
-            size: 60,
-            borderColor: '#000000',
-            fontFamily: 'impact',
-            fontColor: '#ffffff',
-            x,
-            y
-        })
-
+        var x = 20
+        var y = 200
     }
+    gMeme.selectedLineIdx++
+    y += 50
+    gMeme.lines.push({
+        txt: 'New Line',
+        size: 60,
+        borderColor: '#000000',
+        fontFamily: 'impact',
+        fontColor: '#ffffff',
+        x,
+        y
+    })
+
 }
 
 
@@ -88,11 +84,15 @@ function lineDown() {
 }
 
 function deleteLine() {
+ 
+    if (!gMeme.lines.length) return
     gMeme.lines.splice([gMeme.selectedLineIdx], 1)
+    gMeme.selectedLineIdx--
+
 }
-function colorBorder(color){
+function colorBorder(color) {
     gMeme.lines[gMeme.selectedLineIdx].borderColor = color
 }
-function colorFONT(color){
+function colorFONT(color) {
     gMeme.lines[gMeme.selectedLineIdx].fontColor = color
 }

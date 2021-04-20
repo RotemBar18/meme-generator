@@ -109,3 +109,8 @@ function onBorderColor(color){
 }
 
 
+function downloadImg(elLink) {
+    var imgContent = gElCanvas.toDataURL()
+    elLink.href = imgContent
+}
+
