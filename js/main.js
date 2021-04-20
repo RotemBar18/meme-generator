@@ -22,7 +22,7 @@ function resizeCanvas() {
 
 function drawImg(imgId) {
     var img = new Image()
-    img.src = `../imgs/${imgId}.jpg`;
+    img.src = `imgs/${imgId}.jpg`;
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
