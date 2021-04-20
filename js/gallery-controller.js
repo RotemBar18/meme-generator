@@ -23,7 +23,7 @@ function renderGallery(){
     let elGallery = document.querySelector('.image-gallery')
     let strHtml = ``
     gImgs.forEach(img => {
-        strHtml+=`<img src="${img.url}" id="${img.id}" onclick="onImageClick(this.id)"></img>`
+        strHtml+=`<img src="${img.url}" id="${img.id}" onclick="onImageClick(${img.id})"></img>`
     });
     elGallery.innerHTML = strHtml
 }

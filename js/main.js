@@ -4,13 +4,13 @@ let gElCanvas;
 let gCtx;
 
 
+
 function init() {
     gElCanvas = document.querySelector('#my-canvas');
     gCtx = gElCanvas.getContext('2d')
     resizeCanvas()
     renderGallery()
 }
-
 
 
 function resizeCanvas() {
@@ -107,3 +107,5 @@ function onBorderColor(color){
     colorBorder(color)
     renderMeme()
 }
+
+
