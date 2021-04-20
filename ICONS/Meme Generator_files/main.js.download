@@ -115,10 +115,7 @@ function downloadImg(elLink) {
 }
 
 function onSaveMeme(){
-    document.querySelector('.image-gallery').style.display = 'block'
-    const data = gElCanvas.toDataURL();
-    saveMemeToStorage(data)
-    document.body.classList.remove('editor-open')
+    saveMemeToStorage()
 }
 
 function onGalleryClick(){
@@ -130,9 +127,9 @@ function onGalleryClick(){
 }
 
 function onMemesClick() {
-    renderMemes()
     document.body.classList.remove('editor-open')
-    document.querySelector('.saved-memes').style.display = 'grid'
+    document.querySelector('.saved-memes').style.display = 'flex'
     document.querySelector('li .gallery').classList.remove('active')
     document.querySelector('li .memes').classList.add('active')
+    renderMemes()
 }

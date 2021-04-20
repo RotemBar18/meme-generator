@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://127.0.0.1:5500/# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="./Meme Generator_files/style.css">
+</head>
+<body onload="init(event)" data-new-gr-c-s-check-loaded="14.1006.0" data-gr-ext-installed="">
+    <header class="container flex space-between align-center">
+        <div class="logo">Memes</div>
+        <ul class="main-nav flex clean-list">
+            <li><a class="gallery flex-center active" href="http://127.0.0.1:5500/#" onclick="onGalleryClick()">Gallery</a></li>
+            <li><a class="memes flex-center" href="http://127.0.0.1:5500/#" onclick="onMemesClick() ,closeEditor()">Memes</a></li>
+            <li><a class="about flex-center" href="http://127.0.0.1:5500/#">About</a></li>
+        </ul>
+    </header>
+    
+
+        <section class="image-gallery"><img src="./Meme Generator_files/1.jpg" id="1" onclick="onImageClick(1)"><img src="./Meme Generator_files/2.jpg" id="2" onclick="onImageClick(2)"><img src="./Meme Generator_files/3.jpg" id="3" onclick="onImageClick(3)"><img src="./Meme Generator_files/4.jpg" id="4" onclick="onImageClick(4)"><img src="./Meme Generator_files/5.jpg" id="5" onclick="onImageClick(5)"><img src="./Meme Generator_files/6.jpg" id="6" onclick="onImageClick(6)"><img src="./Meme Generator_files/7.jpg" id="7" onclick="onImageClick(7)"><img src="./Meme Generator_files/8.jpg" id="8" onclick="onImageClick(8)"><img src="./Meme Generator_files/9.jpg" id="9" onclick="onImageClick(9)"><img src="./Meme Generator_files/10.jpg" id="10" onclick="onImageClick(10)"><img src="./Meme Generator_files/11.jpg" id="11" onclick="onImageClick(11)"><img src="./Meme Generator_files/12.jpg" id="12" onclick="onImageClick(12)"><img src="./Meme Generator_files/13.jpg" id="13" onclick="onImageClick(13)"><img src="./Meme Generator_files/14.jpg" id="14" onclick="onImageClick(14)"><img src="./Meme Generator_files/15.jpg" id="15" onclick="onImageClick(15)"></section>
+    
+    
+    <section class="main-content">
+        <form class="flex" action="http://127.0.0.1:5500/" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+            <input name="img" id="imgData" type="hidden">
+        <div class="canvas-container">
+            <canvas id="my-canvas" width="502" height="502"></canvas>
+        </div>
+        <div class="tools">
+            <button class="tool-box close-editor-btn" onclick="closeEditor()">x</button>
+            <input class="tool-box text-input" oninput="onTextInput(this.value)" type="text" placeholder="insert your text here">
+            <button class="tool-box increase-font" onclick="onIncreaseFont()"><img src="./Meme Generator_files/increase font - icon.png" alt=""></button>
+            <button class="tool-box decrease-font" onclick="onDecreaseFont()"><img src="./Meme Generator_files/decrease font - icon.png" alt=""></button>
+            <button class="tool-box switch-line" onclick="onSwitchLines()"><img src="./Meme Generator_files/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+            <button class="tool-box up-line" onclick="onUpArrow()"><img src="./Meme Generator_files/up.png" alt=""></button>
+            <button class="tool-box down-line" onclick="onDownArrow()"><img src="./Meme Generator_files/down.png" alt=""></button>
+            <button class="tool-box delete-line" onclick="onDeleteLine()"><img src="./Meme Generator_files/trash.png" alt=""></button>
+            <button class="tool-box new-line-btn" onclick="onAddNewLine()"><img src="./Meme Generator_files/add.png" alt=""></button>
+            <input type="color" class="tool-box border-color" oninput="onBorderColor(this.value)">
+            <input type="color" class="tool-box font-color" oninput="onFontColor(this.value)">
+            <button class="tool-box save-meme" onclick="onSaveMeme()">save!</button>
+            <a href="http://127.0.0.1:5500/#" class="download-btn" onclick="downloadImg(this)" download="my-meme.jpg">Download!</a>
+            <button class="tool-box publish-btn" type="submit"><img src="./Meme Generator_files/share.png" alt=""></button>
+            <a class=" share-btn"></a>
+            
+    </div></form></section>
+  
+    <section class="saved-memes">
+
+    </section>
+
+    <script src="./Meme Generator_files/storage-service.js.download"></script>
+    <script src="./Meme Generator_files/upload-service.js.download"></script>
+    <script src="./Meme Generator_files/util.js.download"></script>
+    <script src="./Meme Generator_files/meme-service.js.download"></script>
+    <script src="./Meme Generator_files/memes-service.js.download"></script>
+    <script src="./Meme Generator_files/memes-controller.js.download"></script>
+    <script src="./Meme Generator_files/gallery-controller.js.download"></script>
+    <script src="./Meme Generator_files/main.js.download"></script>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body></html>

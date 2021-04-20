@@ -99,21 +99,12 @@ function colorFONT(color) {
     gMeme.lines[gMeme.selectedLineIdx].fontColor = color
 }
 
-function getMemesForDisplay() {
+function getMemesForDisplay(){
     gSavedMemes = loadFromStorage(KEY)
-    return gSavedMemes
-}
-
-
-function saveMemeToStorage(url) {
-    let meme = {
-        id: makeId(),
-        url
-    }
-    if (!gSavedMemes || !gSavedMemes.length) {
-        gSavedMemes = [meme]
-    } else {
-        gSavedMemes.push(meme)
-    }
-    saveToStorage(KEY, gSavedMemes)
-}
+ }
+ 
+ 
+ function saveMemeToStorage() {
+     gSavedMemes.push(gMeme)
+     saveToStorage(KEY, gSavedMemes)
+ }

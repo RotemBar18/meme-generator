@@ -1,0 +1,24 @@
+'use strict'
+
+
+
+function renderMemes() {
+    getMemesForDisplay()
+    let elMemes = document.querySelector('.saved-memes')
+    if (!gMemes || !gMemes.length) {
+        elMemes.innerHTML = `<h1 class="no-memes-title" >No Memes yet, try to go to the gallery page and start your own Meme</h1>`
+    }
+    else {
+        let strHtml = ``
+        gMemes.forEach(meme => {
+            strHtml += ``
+        });
+        elMemes.innerHTML = strHtml
+    }
+}
+
+function drawImg(imgId) {
+    var img = new Image()
+    img.src = `imgs/${imgId}.jpg`;
+    gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+}

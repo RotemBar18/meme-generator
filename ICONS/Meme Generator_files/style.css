@@ -262,27 +262,13 @@ body.editor-open .main-content form{
     display: none;
     top: 100px;
     left: 0;
-    height: 70%;
     flex-direction: row;
     text-align: center;
-    justify-content: start;
+    justify-content: space-around;
     width: 100%;
     padding-top: 30px;
-    background-color: rgba(78, 78, 78, 0.904);
+    background-color: black;
     color: white;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-
-}
-.saved-img{
-justify-self: center;
-padding-bottom: 15px;
-border-radius: 30px;
-}
-h1{
-    grid-column: 1/6;
-    grid-row: 1/2;
-    font-size: 2.5rem;
 }
 
 /* HELPERS */
