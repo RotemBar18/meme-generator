@@ -26,7 +26,9 @@ function createMeme(imgId) {
     }
 }
 
-
+function setCurrMeme(meme){
+    gMeme = meme
+}
 function getCurrMeme() {
     return gMeme
 }
@@ -107,6 +109,7 @@ function getMemesForDisplay() {
 
 function saveMemeToStorage(url) {
     let meme = {
+        data:gMeme,
         id: makeId(),
         url
     }
@@ -117,3 +120,13 @@ function saveMemeToStorage(url) {
     }
     saveToStorage(KEY, gSavedMemes)
 }
+
+function getMemeById(memeId) {
+   const memes = loadFromStorage(KEY)
+    var meme = memes.find(function (meme) {
+        return meme.id === memeId
+    })
+    return meme
+}
+
+
