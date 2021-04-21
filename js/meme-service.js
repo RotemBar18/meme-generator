@@ -34,7 +34,6 @@ function getCurrMeme() {
 }
 
 function updateMemeLines(txt) {
-    console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx)
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
 }
 
@@ -139,7 +138,6 @@ function getMemeById(memeId) {
 
 function deleteProject(memeId) {
     const memeIdx = gSavedMemes.findIndex(function (meme) {
-        console.log('meme', meme)
         return memeId === meme.id
     })
     gSavedMemes.splice(memeIdx, 1)

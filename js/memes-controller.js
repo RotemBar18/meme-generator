@@ -11,7 +11,6 @@ function renderMemes() {
     else {
         let strHtml = ``
         memes.forEach(meme => {
-            console.log('meme', meme.id)
             strHtml += `<img class="saved-img ${meme.id}" id="${meme.id}" src="${meme.url}" alt="" oncontextmenu="onSavedMemesLeftClick(event,${meme.id})" onclick="onSavedMemeClick('${meme.id}')">`
         });
         elMemes.innerHTML = strHtml
@@ -20,7 +19,6 @@ function renderMemes() {
 
 function onSavedMemeClick(memeId) {
     if (document.querySelector('img.selected')) return
-    console.log('memeId', memeId)
     const meme = getMemeById(memeId)
     document.querySelector('.saved-memes').style.display = 'none'
     document.querySelector('.delete-modal').classList.remove('open')
@@ -28,6 +26,7 @@ function onSavedMemeClick(memeId) {
     openEditor()
     renderSavedMeme(meme)
     setCurrMeme(meme.data)
+    document.querySelector('.image-gallery').style.display = 'none'
 }
 
 
@@ -51,6 +50,7 @@ function renderSavedMeme(meme) {
 
 
 function onSavedMemesLeftClick(ev, meme) {
+    ev.preventDefault()
     const currMeme = getMemeById(meme.id)
     if (document.querySelector('img.selected')) return
     if (ev.button === 2) {
@@ -67,7 +67,6 @@ function closeDeleteModal() {
 
 function onDeleteProject(){
     const elCurrMeme = document.querySelector('img.selected')
-    console.log('elCurrMeme', elCurrMeme)
     const currMemeId = elCurrMeme.id
     deleteProject(currMemeId)
     renderMemes()

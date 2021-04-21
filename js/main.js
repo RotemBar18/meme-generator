@@ -105,12 +105,10 @@ function onFontChange(value){
 }
 
 function onFontColor(color){
-    console.log('color', color)
     colorFONT(color)
     renderMeme()
 }
 function onBorderColor(color){
-    console.log('color', color)
     colorBorder(color)
     renderMeme()
 }
@@ -143,4 +141,8 @@ function onMemesClick() {
     document.querySelector('.saved-memes').style.display = 'grid'
     document.querySelector('li .gallery').classList.remove('active')
     document.querySelector('li .memes').classList.add('active')
+}
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open')
 }
