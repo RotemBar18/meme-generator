@@ -20,6 +20,7 @@ function doUploadImg(elForm, onSuccess) {
     var formData = new FormData(elForm);
     fetch('//ca-upload.com/here/upload.php', {
         method: 'POST',
+        mode: 'no-cors',
         body: formData
     })
         .then(function (res) {
