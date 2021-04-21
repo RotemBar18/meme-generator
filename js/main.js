@@ -90,11 +90,17 @@ function onSwitchLines() {
 
 function clearCanvas() {
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
-
+    
 }
 
 function onDeleteLine(){
     deleteLine()
+    document.querySelector('.text-input').value = ''
+    renderMeme()
+}
+function onFontChange(value){
+    changeFont(value)
+    document.querySelector('.font-select').value = value
     renderMeme()
 }
 

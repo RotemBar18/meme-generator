@@ -2,6 +2,15 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: surfer;
+    src:url(../fonts/OriginalSurfer-Regular.ttf)
+}
+@font-face {
+    font-family: anime;
+    src:url(../fonts/NinjaNaruto-YOn4.ttf)
+}
+
 body {
     margin: 0;
     background-color: #292929;
@@ -17,44 +26,58 @@ body {
 }
 
 .logo {
+    font-family: anime;
     color: #dadada;
+    margin-left: 20px;
     font-size: 40px;
     font-weight: 500;
 }
+.logo::before {
+    content: 'A';
+ font-size: 60px;
+ color:#ff0000c7;
+}
+
 
 .main-nav li {
     box-shadow: -1px 0 0 #1d1d1d, inset -1px 0 0 #1d1d1d;
 }
 
 .main-nav a {
+    font-family: anime;
     display: flex;
     width: 100px;
     height: 100px;
     color: #dadada;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 0.8px;
     text-decoration: none;
 }
 
 .main-nav a:hover {
-    color: #c08e5f;
+    color: #ff0000c7;
 }
 
 .main-nav a.active {
-    color: #c08e5f;
-    box-shadow: inset 0 -6px 0 #c08e5f;
+    color: #ff0000c7;
+    box-shadow: inset 0 -6px 0 #ff0000c7;
 }
 
 .image-gallery {
     padding-top: 30px;
-    background-color: rgb(255, 229, 199);
+    background-color:#8d0000c7;
 }
 
 img {
+    height: 150px;
     border-radius: 10px;
     max-width: 150px;
     margin: 10px;
+    cursor: pointer;
+}
+img:hover {
+    opacity: 0.5;
 }
 
 .main-content form {
@@ -70,8 +93,8 @@ img {
     padding-top: 30px;
     padding-bottom: 30px;
     background-color: #fff;
-    transform: translateX(-200%);
-    transition: transform 0.3s;
+    transform: translateX(-400%);
+    transition: transform 0.6s;
 }
 
 body.editor-open .main-content form {
@@ -121,6 +144,7 @@ body.editor-open .main-content form {
 }
 
 .text-input {
+    font-family: surfer;
     font-size: 1.5rem;
     grid-column: 2/5;
     grid-row: 1/2;
@@ -189,6 +213,7 @@ body.editor-open .main-content form {
     text-decoration: none;
     color: rgba(177, 177, 177, 0.431);
     align-self: center;
+    font-family: surfer;
 }
 
 .download-btn:hover {
@@ -205,6 +230,7 @@ body.editor-open .main-content form {
     align-items: center;
     font-size: 1.5rem;
     font-weight: 600;
+    font-family: surfer;
 }
 
 .save-meme:hover {
@@ -246,7 +272,27 @@ body.editor-open .main-content form {
 .share-btn:hover {
     color: rgb(255, 255, 255);
 }
-
+.font-select{
+    grid-column: 5/6;
+    grid-row: 3/4;
+    border-radius: 10px;
+    height: 83%;
+    width: 83%;
+    justify-self: center;
+    align-self: center;
+}
+.impact{
+    font-family: Impact;
+}
+.arial{
+    font-family: arial;
+}
+.surfer{
+    font-family: surfer;
+}
+.anime{
+    font-family: anime;
+}
 .close-editor-btn {
     grid-column: 5/6;
     grid-row: 1/2;
@@ -267,10 +313,8 @@ body.editor-open .main-content form {
 
 .close-editor-btn:hover {
     background-color: rgba(0, 0, 0, 0);
-    color:white
+    color: white
 }
-
-
 
 .saved-memes {
     position: absolute;
@@ -290,7 +334,7 @@ body.editor-open .main-content form {
 
 .saved-img {
     justify-self: center;
-    padding-bottom: 15px;
+    margin-bottom: 15px;
     border-radius: 30px;
 }
 
@@ -298,6 +342,48 @@ h1 {
     grid-column: 1/6;
     grid-row: 1/2;
     font-size: 2.5rem;
+    font-weight: 1;
+    font-family: surfer;
+}
+img.selected{
+   box-shadow: 0px 0px 21px 21px rgba(255,0,0,0.53)
+}
+
+.delete-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color:rgba(255, 255, 255, 0.637);
+    flex-direction: column;
+    transform: translateY(-100%);
+        
+    transition: transform .6s;
+}
+.delete-modal.open{
+    transform: translateY(0);
+}
+
+.delete-msg{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+.delete-modal h2{
+    font-family: surfer;
+}
+.delete-modal-btns{
+    justify-content: space-between;
+}
+.delete-project{
+    font-family: surfer;
+    width: 40%;
+}
+.cancel-btn {
+    font-family: surfer;
+    width: 40%;
+
 }
 
 /* HELPERS */

@@ -100,6 +100,9 @@ function colorBorder(color) {
 function colorFONT(color) {
     gMeme.lines[gMeme.selectedLineIdx].fontColor = color
 }
+function changeFont(value){
+    gMeme.lines[gMeme.selectedLineIdx].fontFamily = value
+}
 
 function getMemesForDisplay() {
     gSavedMemes = loadFromStorage(KEY)
@@ -118,6 +121,10 @@ function saveMemeToStorage(url) {
     } else {
         gSavedMemes.push(meme)
     }
+    _saveMemesToSorage()
+}
+
+function _saveMemesToSorage(){
     saveToStorage(KEY, gSavedMemes)
 }
 
@@ -130,3 +137,11 @@ function getMemeById(memeId) {
 }
 
 
+function deleteProject(memeId) {
+    const memeIdx = gSavedMemes.findIndex(function (meme) {
+        console.log('meme', meme)
+        return memeId === meme.id
+    })
+    gSavedMemes.splice(memeIdx, 1)
+    _saveMemesToSorage();
+}

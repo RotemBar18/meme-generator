@@ -11,7 +11,7 @@
 
 <body onload="init(event)">
     <header class="container flex space-between align-center">
-        <div class="logo">Memes</div>
+        <div class="logo">niMemes</div>
         <ul class="main-nav flex clean-list">
             <li><a class="gallery flex-center active" href="#" onclick="onGalleryClick()">Gallery</a></li>
             <li><a class="memes flex-center" href="#" onclick="onMemesClick() ,closeEditor()">Memes</a></li>
@@ -51,12 +51,29 @@
                 <a href="#" class="download-btn" onclick="downloadImg(this)" download="my-meme.jpg">Download</a>
                 <a class=" share-btn"></a>
                 <button class="tool-box publish-btn" type="submit"><img src="ICONS/share.png" alt=""></button>
+                <select class="font-select" name="font-select" id="font-select" onchange="onFontChange(value)">
+                    <option class="impact" value="impact">Impact</option>
+                    <option class="arial" value="arial">Arial</option>
+                    <option class="surfer" value="surfer">Surfer</option>
+                    <option class="anime" value="anime">Anime</option>
+                </select>
             </div>
     </section>
     </form>
 
     <section class="saved-memes ">
     </section>
+    <div class="delete-modal flex">
+        <div class="delete-msg">
+            <h2 class="modal-title">
+                Do you want to delete this project?
+            </h2>
+            <div class="delete-modal-btns flex">
+                <button class="delete-project" onclick="onDeleteProject()">Delete</button>
+                <button class="cancel-btn" onclick="closeDeleteModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
 
     <script src="js/storage-service.js"></script>
     <script src="js/upload-service.js"></script>
