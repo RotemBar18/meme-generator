@@ -32,5 +32,5 @@ function openEditor() {
 
 function closeEditor() {
     document.body.classList.remove('editor-open')
-    document.querySelector('.image-gallery').style.display = 'block'
+    document.querySelector('.image-gallery').style.display = 'flex'
 }
