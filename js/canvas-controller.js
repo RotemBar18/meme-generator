@@ -3,8 +3,6 @@
 let gElCanvas;
 let gCtx;
 
-
-
 function init() {
     gElCanvas = document.querySelector('#my-canvas');
     gCtx = gElCanvas.getContext('2d')
@@ -12,13 +10,11 @@ function init() {
     renderGallery()
 }
 
-
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container');
     gElCanvas.width = elContainer.offsetWidth
     gElCanvas.height = elContainer.offsetHeight
 }
-
 
 function drawImg(imgId) {
     var img = new Image()
@@ -26,9 +22,8 @@ function drawImg(imgId) {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
-
 function renderMeme() {
-    let currMeme = getCurrMeme()
+    const currMeme = getCurrMeme()
     drawImg(currMeme.selectedImgId)
     currMeme.lines.forEach(line => {
         gCtx.strokeStyle = line.borderColor
@@ -42,7 +37,6 @@ function renderMeme() {
         document.querySelector('.border-color').value = `${currMeme.lines[currMeme.selectedLineIdx].borderColor}`
         document.querySelector('.font-color').value = `${currMeme.lines[currMeme.selectedLineIdx].fontColor}`
     });
-
 }
 
 function onTextInput(txt) {
@@ -65,11 +59,12 @@ function onAddNewLine() {
 }
 
 function onIncreaseFont() {
-    increaseFont()
+    changeFontSize(1.5)
     renderMeme()
 }
+
 function onDecreaseFont() {
-    decreaseFont()
+    changeFontSize(-1.5)
     renderMeme()
 }
 
@@ -77,6 +72,7 @@ function onUpArrow() {
     lineUp()
     renderMeme()
 }
+
 function onDownArrow() {
     lineDown()
     renderMeme()
@@ -90,25 +86,25 @@ function onSwitchLines() {
 
 function clearCanvas() {
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
-    
 }
 
-function onDeleteLine(){
+function onDeleteLine() {
     deleteLine()
     document.querySelector('.text-input').value = ''
     renderMeme()
 }
-function onFontChange(value){
+function onFontChange(value) {
     changeFont(value)
     document.querySelector('.font-select').value = value
     renderMeme()
 }
 
-function onFontColor(color){
-    colorFONT(color)
+function onFontColor(color) {
+    colorFont(color)
     renderMeme()
 }
-function onBorderColor(color){
+
+function onBorderColor(color) {
     colorBorder(color)
     renderMeme()
 }
@@ -119,14 +115,14 @@ function downloadImg(elLink) {
     elLink.href = imgContent
 }
 
-function onSaveMeme(){
+function onSaveMeme() {
     document.querySelector('.image-gallery').style.display = 'block'
     const data = gElCanvas.toDataURL();
     saveMemeToStorage(data)
     document.body.classList.remove('editor-open')
 }
 
-function onGalleryClick(){
+function onGalleryClick() {
     document.querySelector('.saved-memes').style.display = 'none'
     document.querySelector('.image-gallery').style.display = 'block'
     document.querySelector('li .gallery').classList.add('active')
@@ -135,10 +131,11 @@ function onGalleryClick(){
 }
 
 function onMemesClick() {
+    closeEditor()
     renderMemes()
     document.querySelector('.image-gallery').style.display = 'none'
     document.body.classList.remove('editor-open')
-    document.querySelector('.saved-memes').style.display = 'grid'
+    document.querySelector('.saved-memes').style.display = 'flex'
     document.querySelector('li .gallery').classList.remove('active')
     document.querySelector('li .memes').classList.add('active')
 }

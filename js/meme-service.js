@@ -20,15 +20,15 @@ function createMeme(imgId) {
                 fontColor: '#ffffff',
                 x: 20,
                 y: 100
-
             }
         ]
     }
 }
 
-function setCurrMeme(meme){
+function setCurrMeme(meme) {
     gMeme = meme
 }
+
 function getCurrMeme() {
     return gMeme
 }
@@ -38,7 +38,7 @@ function updateMemeLines(txt) {
 }
 
 function addNewLine() {
-    
+
     if (!gMeme.lines.length) {
         var x = 20
         var y = 100
@@ -61,16 +61,10 @@ function addNewLine() {
         x,
         y
     })
-
 }
 
-
-function increaseFont() {
-    gMeme.lines[gMeme.selectedLineIdx].size += 1.5
-}
-
-function decreaseFont() {
-    gMeme.lines[gMeme.selectedLineIdx].size -= 1.5
+function changeFontSize(val) {
+    gMeme.lines[gMeme.selectedLineIdx].size += val
 }
 
 function switchLines() {
@@ -96,10 +90,10 @@ function deleteLine() {
 function colorBorder(color) {
     gMeme.lines[gMeme.selectedLineIdx].borderColor = color
 }
-function colorFONT(color) {
+function colorFont(color) {
     gMeme.lines[gMeme.selectedLineIdx].fontColor = color
 }
-function changeFont(value){
+function changeFont(value) {
     gMeme.lines[gMeme.selectedLineIdx].fontFamily = value
 }
 
@@ -108,10 +102,9 @@ function getMemesForDisplay() {
     return gSavedMemes
 }
 
-
 function saveMemeToStorage(url) {
     let meme = {
-        data:gMeme,
+        data: gMeme,
         id: makeId(),
         url
     }
@@ -123,18 +116,17 @@ function saveMemeToStorage(url) {
     _saveMemesToSorage()
 }
 
-function _saveMemesToSorage(){
+function _saveMemesToSorage() {
     saveToStorage(KEY, gSavedMemes)
 }
 
 function getMemeById(memeId) {
-   const memes = loadFromStorage(KEY)
+    const memes = loadFromStorage(KEY)
     var meme = memes.find(function (meme) {
         return meme.id === memeId
     })
     return meme
 }
-
 
 function deleteProject(memeId) {
     const memeIdx = gSavedMemes.findIndex(function (meme) {

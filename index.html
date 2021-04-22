@@ -14,14 +14,14 @@
     <header class="container flex space-between align-center">
         <div class="logo">niMemes</div>
         <ul class="main-nav flex clean-list">
-            <li><a class="gallery flex-center active" href="#" onclick="onGalleryClick(),toggleMenu()">Gallery</a></li>
-            <li><a class="memes flex-center" href="#" onclick="onMemesClick() ,closeEditor(),toggleMenu()">Memes</a></li>
+            <li><a class="gallery flex-center active" onclick="onGalleryClick(),toggleMenu()">Gallery</a></li>
+            <li><a class="memes flex-center" onclick="onMemesClick(),toggleMenu()">Memes</a></li>
         </ul>
         <button class="btn-menu" onclick="toggleMenu()">☰</button>
     </header>
 
 
-    <section class="image-gallery">
+    <section class="image-gallery flex">
     </section>
 
 
@@ -32,7 +32,7 @@
                 <canvas id="my-canvas" width="500px" height="500px"></canvas>
             </div>
             <div class="tools">
-                <button class="tool-box close-editor-btn" onclick="closeEditor()">x</button>
+                <button class="tool-box close-editor-btn" onclick="closeEditor()">Return</button>
                 <input class="tool-box text-input" oninput="onTextInput(this.value)" type="text"
                     placeholder="insert your text here">
                 <button class="tool-box increase-font" onclick="onIncreaseFont()"><img
@@ -50,7 +50,6 @@
                 <input type="color" class="tool-box font-color" oninput="onFontColor(this.value)"></input>
                 <button class="tool-box save-meme" onclick="onSaveMeme()">Save</button>
                 <a href="#" class="download-btn" onclick="downloadImg(this)" download="my-meme.jpg">Download</a>
-                <a class=" share-btn"></a>
                 <button class="tool-box publish-btn" type="submit"><img src="ICONS/share.png" alt=""></button>
                 <select class="font-select" name="font-select" id="font-select" onchange="onFontChange(value)">
                     <option class="impact" value="impact">Impact</option>
@@ -81,7 +80,7 @@
     <script src="js/util.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/gallery-controller.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/canvas-controller.js"></script>
     <script src="js/memes-controller.js"></script>
 </body>
 

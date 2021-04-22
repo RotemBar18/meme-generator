@@ -1,7 +1,5 @@
 'use strict'
 
-
-
 function renderMemes() {
     const memes = getMemesForDisplay()
     let elMemes = document.querySelector('.saved-memes')
@@ -29,9 +27,6 @@ function onSavedMemeClick(memeId) {
     document.querySelector('.image-gallery').style.display = 'none'
 }
 
-
-
-
 function renderSavedMeme(meme) {
     drawImg(meme.data.selectedImgId)
     meme.data.lines.forEach(line => {
@@ -48,7 +43,6 @@ function renderSavedMeme(meme) {
     });
 }
 
-
 function onSavedMemesLeftClick(ev, meme) {
     ev.preventDefault()
     const currMeme = getMemeById(meme.id)
@@ -64,8 +58,7 @@ function closeDeleteModal() {
     document.querySelector('.delete-modal').classList.remove('open')
 }
 
-
-function onDeleteProject(){
+function onDeleteProject() {
     const elCurrMeme = document.querySelector('img.selected')
     const currMemeId = elCurrMeme.id
     deleteProject(currMemeId)

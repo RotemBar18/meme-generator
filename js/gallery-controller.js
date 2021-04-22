@@ -17,20 +17,19 @@ const gImgs = [
     { id: 15, url: 'imgs/15.jpg', keywords: ['happy'] }
 ];
 
-
-
-function renderGallery(){
+function renderGallery() {
     let elGallery = document.querySelector('.image-gallery')
     let strHtml = ``
-    gImgs.forEach(img => {
-        strHtml+=`<img src="${img.url}" id="${img.id}" onclick="onImageClick(${img.id})"></img>`
+    strHtml = gImgs.map(img => {
+        return `<img src="${img.url}" id="${img.id}" onclick="onImageClick(${img.id})"></img>`
     });
-    elGallery.innerHTML = strHtml
+    elGallery.innerHTML = strHtml.join('')
 }
 
 function openEditor() {
     document.body.classList.add('editor-open')
 }
+
 function closeEditor() {
     document.body.classList.remove('editor-open')
     document.querySelector('.image-gallery').style.display = 'block'
